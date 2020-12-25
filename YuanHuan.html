@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>炫彩圆环</title>
+    <style>
+        *{margin: 0;padding: 0;}
+        body{width: 100%;height: 100vh;}
+        #d1{width: 100%;height: 100vh;
+            display: flex;justify-content: center;align-items: center;
+            background: #000;
+        }
+        .c1{
+            width: 200px;height: 200px;border-radius: 50%;
+            background-image: linear-gradient(0deg,
+            #7effdb,#b693fe 30%,#fd3a69 60%,#ff9de2 100%);
+            display: flex;justify-content: center;align-items: center;
+            animation: add .5s linear infinite;
+        }
+        /* 模糊处理 */
+        /* 用伪元素做出发光的效果 */
+        .c1::before{
+            content: "";
+            position: absolute;
+            width: 200px;height: 200px;border-radius: 50%;
+            background-image: linear-gradient(0deg,
+            #7effdb,#b693fe 30%,#fd3a69 60%,#ff9de2 100%);
+            filter: blur(40px);
+        }
+         /* 用伪元素做黑色的区域 */
+         .c1::after{
+            content: "";
+            position: absolute;
+            width: 150px;height: 150px;border-radius: 50%;
+            background: #000
+            
+        }
+        /* 动画 */
+        @keyframes add{
+            0%{transform:  rotate(0deg);}
+            100%{transform: rotate(360deg);}
+        }
+    </style>
+</head>
+<body>
+    <div id="d1">
+        <div class="c1"></div>
+    </div>
+</body>
+</html>
